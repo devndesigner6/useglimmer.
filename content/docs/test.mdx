@@ -1,0 +1,20 @@
+---
+title: Lonely Button
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { Counter } from "@/components/counter";
+
+<Counter />
+
+<Callout type="info">This is an info callout!</Callout>
+
+<Tabs items={["npm", "pnpm", "yarn"]}>
+  <Tab value="npm">```bash npm install fumadocs ```</Tab>
+  <Tab value="pnpm">```bash pnpm add fumadocs ```</Tab>
+</Tabs>
+
+## Regular Markdown
+
+Still works normally!
