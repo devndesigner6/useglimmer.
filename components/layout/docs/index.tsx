@@ -1,26 +1,29 @@
-'use client';
-import type * as PageTree from 'fumadocs-core/page-tree';
+"use client";
+import type * as PageTree from "fumadocs-core/page-tree";
+import { type ComponentProps, type ReactNode, useMemo } from "react";
+import { cn } from "../../../lib/cn";
+import { TreeContextProvider, useTreeContext } from "fumadocs-ui/contexts/tree";
+import Link from "fumadocs-core/link";
+import { useSearchContext } from "fumadocs-ui/contexts/search";
+import { cva } from "class-variance-authority";
+import { usePathname } from "fumadocs-core/framework";
 import {
-  type ComponentProps,
-  createContext,
-  type ReactNode,
-  use,
-  useMemo,
-  useState,
-} from 'react';
-import { cn } from '../../../lib/cn';
-import { TreeContextProvider, useTreeContext } from 'fumadocs-ui/contexts/tree';
-import Link from 'fumadocs-core/link';
-import { useSearchContext } from 'fumadocs-ui/contexts/search';
-import { cva } from 'class-variance-authority';
-import { usePathname } from 'fumadocs-core/framework';
-
-interface SidebarContext {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const SidebarContext = createContext<SidebarContext | null>(null);
+  SidebarProvider,
+  Sidebar as ShadcnSidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
+  SidebarMenuSubButton,
+  SidebarTrigger,
+  SidebarInset,
+  SidebarHeader,
+} from "@/components/ui/sidebar";
 
 export interface DocsLayoutProps {
   tree: PageTree.Root;
@@ -31,54 +34,44 @@ export function DocsLayout({ tree, children }: DocsLayoutProps) {
   return (
     <TreeContextProvider tree={tree}>
       <SidebarProvider>
-        <header className="sticky top-0 bg-fd-background h-14 z-20">
-          <nav className="flex flex-row items-center gap-2 size-full px-4">
-            <Link href="/" className="font-medium mr-auto">
+        <ShadcnSidebar>
+          <SidebarHeader>
+            <Link href="/" className="font-medium px-2 py-2">
               My Docs
             </Link>
-
-            <SearchToggle />
-            <NavbarSidebarTrigger className="md:hidden" />
-          </nav>
-        </header>
-        <main
-          id="nd-docs-layout"
-          className="flex flex-1 flex-row [--fd-nav-height:56px]"
-        >
-          <Sidebar />
-          {children}
-        </main>
+          </SidebarHeader>
+          <SidebarContent>
+            <DocsSidebarContent />
+          </SidebarContent>
+        </ShadcnSidebar>
+        <SidebarInset>
+          <header className="sticky top-0 bg-fd-background h-14 z-20 border-b">
+            <nav className="flex flex-row items-center gap-2 size-full px-4">
+              <SidebarTrigger />
+              <div className="flex-1" />
+              <SearchToggle />
+            </nav>
+          </header>
+          <main id="nd-docs-layout" className="flex flex-1 flex-row">
+            {children}
+          </main>
+        </SidebarInset>
       </SidebarProvider>
     </TreeContextProvider>
   );
 }
 
-function SidebarProvider({ children }: { children: ReactNode }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <SidebarContext
-      value={useMemo(
-        () => ({
-          open,
-          setOpen,
-        }),
-        [open],
-      )}
-    >
-      {children}
-    </SidebarContext>
-  );
-}
-
-function SearchToggle(props: ComponentProps<'button'>) {
+function SearchToggle(props: ComponentProps<"button">) {
   const { enabled, setOpenSearch } = useSearchContext();
-  if (!enabled) return;
+  if (!enabled) return null;
 
   return (
     <button
       {...props}
-      className={cn('text-sm', props.className)}
+      className={cn(
+        "text-sm px-3 py-1.5 rounded-md hover:bg-sidebar-accent",
+        props.className
+      )}
       onClick={() => setOpenSearch(true)}
     >
       Search
@@ -86,112 +79,127 @@ function SearchToggle(props: ComponentProps<'button'>) {
   );
 }
 
-function NavbarSidebarTrigger(props: ComponentProps<'button'>) {
-  const { open, setOpen } = use(SidebarContext)!;
-
-  return (
-    <button
-      {...props}
-      className={cn('text-sm', props.className)}
-      onClick={() => setOpen(!open)}
-    >
-      Sidebar
-    </button>
-  );
-}
-
-function Sidebar() {
+function DocsSidebarContent() {
   const { root } = useTreeContext();
-  const { open } = use(SidebarContext)!;
 
   const children = useMemo(() => {
-    function renderItems(items: PageTree.Node[]) {
+    function renderItems(items: PageTree.Node[], isNested = false): ReactNode {
       return items.map((item) => (
-        <SidebarItem key={item.$id} item={item}>
-          {item.type === 'folder' ? renderItems(item.children) : null}
+        <SidebarItem key={item.$id} item={item} isNested={isNested}>
+          {item.type === "folder" ? renderItems(item.children, true) : null}
         </SidebarItem>
       ));
     }
 
-    return renderItems(root.children);
+    return renderItems(root.children, false);
   }, [root]);
 
   return (
-    <aside
-      className={cn(
-        'fixed flex flex-col shrink-0 p-4 top-14 z-20 text-sm overflow-auto md:sticky md:h-[calc(100dvh-56px)] md:w-[300px]',
-        'max-md:inset-x-0 max-md:bottom-0 max-md:bg-fd-background',
-        !open && 'max-md:invisible',
-      )}
-    >
-      {children}
-    </aside>
+    <SidebarGroup>
+      <SidebarGroupContent>
+        <SidebarMenu>{children}</SidebarMenu>
+      </SidebarGroupContent>
+    </SidebarGroup>
   );
 }
 
-const linkVariants = cva(
-  'flex items-center gap-2 w-full py-1.5 rounded-lg text-fd-foreground/80 [&_svg]:size-4',
-  {
-    variants: {
-      active: {
-        true: 'text-fd-primary font-medium',
-        false: 'hover:text-fd-accent-foreground',
-      },
+const linkVariants = cva("flex items-center gap-2 w-full [&_svg]:size-4", {
+  variants: {
+    active: {
+      true: "text-sidebar-accent-foreground bg-sidebar-accent font-medium",
+      false:
+        "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
     },
   },
-);
+});
 
 function SidebarItem({
   item,
   children,
+  isNested = false,
 }: {
   item: PageTree.Node;
   children: ReactNode;
+  isNested?: boolean;
 }) {
   const pathname = usePathname();
 
-  if (item.type === 'page') {
+  if (item.type === "page") {
+    if (isNested) {
+      return (
+        <SidebarMenuSubItem>
+          <SidebarMenuSubButton
+            render={(props) => <Link {...props} href={item.url} />}
+            isActive={pathname === item.url}
+          >
+            {item.icon}
+            <span>{item.name}</span>
+          </SidebarMenuSubButton>
+        </SidebarMenuSubItem>
+      );
+    }
+
     return (
-      <Link
-        href={item.url}
-        className={linkVariants({
-          active: pathname === item.url,
-        })}
-      >
-        {item.icon}
-        {item.name}
-      </Link>
+      <SidebarMenuItem>
+        <SidebarMenuButton
+          render={(props) => <Link {...props} href={item.url} />}
+          isActive={pathname === item.url}
+        >
+          {item.icon}
+          <span>{item.name}</span>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
     );
   }
 
-  if (item.type === 'separator') {
+  if (item.type === "separator") {
     return (
-      <p className="text-fd-muted-foreground mt-6 mb-2 first:mt-0">
+      <SidebarGroupLabel>
         {item.icon}
         {item.name}
-      </p>
+      </SidebarGroupLabel>
+    );
+  }
+
+  if (isNested) {
+    return (
+      <SidebarMenuSubItem>
+        {item.index ? (
+          <SidebarMenuSubButton
+            render={(props) => <Link {...props} href={item.index!.url} />}
+            isActive={pathname === item.index.url}
+          >
+            {item.index.icon}
+            <span>{item.index.name}</span>
+          </SidebarMenuSubButton>
+        ) : (
+          <SidebarMenuSubButton>
+            {item.icon}
+            <span>{item.name}</span>
+          </SidebarMenuSubButton>
+        )}
+        {children}
+      </SidebarMenuSubItem>
     );
   }
 
   return (
-    <div>
+    <SidebarMenuItem>
       {item.index ? (
-        <Link
-          className={linkVariants({
-            active: pathname === item.index.url,
-          })}
-          href={item.index.url}
+        <SidebarMenuButton
+          render={(props) => <Link {...props} href={item.index!.url} />}
+          isActive={pathname === item.index.url}
         >
           {item.index.icon}
-          {item.index.name}
-        </Link>
+          <span>{item.index.name}</span>
+        </SidebarMenuButton>
       ) : (
-        <p className={cn(linkVariants(), 'text-start')}>
+        <SidebarMenuButton>
           {item.icon}
-          {item.name}
-        </p>
+          <span>{item.name}</span>
+        </SidebarMenuButton>
       )}
-      <div className="pl-4 border-l flex flex-col">{children}</div>
-    </div>
+      {children && <SidebarMenuSub>{children}</SidebarMenuSub>}
+    </SidebarMenuItem>
   );
 }
