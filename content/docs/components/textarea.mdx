@@ -1,0 +1,35 @@
+---
+title: Textarea
+description: Displays a form textarea or a component that looks like a textarea.
+---
+
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+
+## Usage
+
+<div className="grid w-full gap-1.5">
+  <Label htmlFor="message">Your message</Label>
+  <Textarea placeholder="Type your message here." id="message" />
+</div>
+
+```tsx
+import { Textarea } from "@/components/ui/textarea";
+
+<Textarea placeholder="Type your message here." />;
+```
+
+## With Button
+
+<div className="grid w-full gap-2">
+  <Textarea placeholder="Type your message here." />
+  <Button>Send message</Button>
+</div>
+
+```tsx
+<div className="grid w-full gap-2">
+  <Textarea placeholder="Type your message here." />
+  <Button>Send message</Button>
+</div>
+```
