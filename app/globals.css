@@ -135,3 +135,23 @@
     background-position: -200% 0;
   }
 }
+
+/* Fix code block overflow in docs */
+.prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.prose {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Ensure code blocks don't expand parent */
+[data-rehype-pretty-code-figure] {
+  overflow: hidden;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  overflow-x: auto;
+}
