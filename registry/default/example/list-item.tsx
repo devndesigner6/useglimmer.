@@ -78,7 +78,13 @@ function ListItem(props: {
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ type: "spring", bounce: 0.1, duration: 0.65, delay }}
+      transition={{
+        type: "spring",
+        bounce: 0.1,
+        duration: 0.25,
+        delay,
+        ease: [0.215, 0.61, 0.355, 1],
+      }}
       onClick={() => {
         setSelectedFilterKey(filterKey);
 
@@ -86,10 +92,10 @@ function ListItem(props: {
           setIsOpened(false);
         }, 150);
       }}
-      className="px-3 py-2 rounded-lg flex justify-between items-center cursor-default hover:bg-accent text-foreground"
+      className="px-3 py-2 rounded-2xl flex justify-between items-center cursor-default hover:bg-accent  text-foreground"
     >
       <div className="flex items-center gap-x-3">
-        <span>
+        <span className="text-muted-foreground">
           <filterKey.Icon size={24} />
         </span>
         <span className="capitalize">{filterKey.name}</span>
@@ -143,27 +149,31 @@ const FilterInteraction = () => {
             // transition: { delay: isOpened ? 0 : 0.2 },
           }}
           transition={{ type: "spring", bounce: 0.3, duration: 1.5 }}
-          className="relative right-2.5 w-20 h-20 border border-border rounded-full flex justify-center items-center bg-background text-foreground"
+          className="relative right-2.5 w-20 h-20 border border-border rounded-full flex justify-center items-center bg-background"
         >
-          <selectedFilterKey.Icon size={36} />
+          <span className="text-muted-foreground">
+            <selectedFilterKey.Icon size={36} />
+          </span>
         </motion.div>
 
         {isOpened && (
           <motion.section
             layoutId="wrapper"
-            className="absolute z-20 w-72 px-1 py-2 bg-card border border-border text-xl overflow-hidden"
+            className="absolute z-20 w-72 px-1 py-1 bg-card border border-border text-xl overflow-hidden "
             style={{ borderRadius: 20, borderWidth: 1 }}
           >
-            {filterKeys.map((item, index) => (
-              <ListItem
-                key={item.name}
-                index={index}
-                filterKey={item}
-                selectedFilterKey={selectedFilterKey}
-                setSelectedFilterKey={setSelectedFilterKey}
-                setIsOpened={setIsOpened}
-              />
-            ))}
+            <div className="flex flex-col gap-1">
+              {filterKeys.map((item, index) => (
+                <ListItem
+                  key={item.name}
+                  index={index}
+                  filterKey={item}
+                  selectedFilterKey={selectedFilterKey}
+                  setSelectedFilterKey={setSelectedFilterKey}
+                  setIsOpened={setIsOpened}
+                />
+              ))}
+            </div>
           </motion.section>
         )}
       </MotionConfig>

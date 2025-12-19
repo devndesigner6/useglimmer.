@@ -6,12 +6,13 @@ description: An animated filter selector with morphing container and staggered l
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import FilterInteraction from "@/registry/default/example/list-item";
+import { ComponentPreview } from "@/components/component-preview";
 
 <Tabs items={['Preview', 'Code']}>
   <Tab value="Preview">
-    <div className="flex items-center relative h-[400px] justify-center w-full">
+    <ComponentPreview>
       <FilterInteraction />
-    </div>
+    </ComponentPreview>
   </Tab>
   <Tab value="Code">
     ```tsx

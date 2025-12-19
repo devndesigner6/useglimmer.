@@ -1,6 +1,6 @@
 "use client";
 import { delay, motion } from "motion/react";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   InboxIcon,
   Message01Icon,
@@ -90,7 +90,7 @@ function ExtendedToolbar() {
   const [secondaryRef, secondaryBounds] = useMeasure();
 
   // Set mounted after first render to prevent initial animation
-  React.useEffect(() => {
+  useEffect(() => {
     setIsMounted(true);
   }, []);
 
@@ -107,8 +107,8 @@ function ExtendedToolbar() {
     damping: 20,
     mass: 0.8,
     bounce: 0.9,
-    duration: isExpanded ? 0.7 : 1,
-    delay: isExpanded ? 0 : 0.01,
+    duration: isExpanded ? 0.4 : 1.2,
+    delay: isExpanded ? 0 : 0.015,
   };
 
   return (
