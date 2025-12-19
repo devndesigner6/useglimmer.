@@ -94,13 +94,19 @@ import {
   LogoutIcon,
 } from "@hugeicons/core-free-icons";
 import MenuInteraction from "./checking";
+import FolderInteraction from "./todo/folder-interaction";
+import FilterInteraction from "./todo/list-item";
+import ExtendedToolbar from "./todo/expanded-toolbar";
 
 export function ComponentExample() {
   return (
-    <ExampleWrapper>
-      <CardExample />
+    <ExampleWrapper className="light">
+      {/* <CardExample />
       <FormExample />
-      <MenuInteraction />
+      <MenuInteraction /> */}
+      {/* <FolderInteraction /> */}
+      {/* <FilterInteraction /> */}
+      <ExtendedToolbar />
     </ExampleWrapper>
   );
 }
