@@ -39,7 +39,7 @@ const DeleteButton = () => {
     <div className="flex items-center justify-center">
       <AnimatePresence mode="popLayout" initial={false}>
         {!isDeleting ? (
-          // ⛔ STATE A — DELETE BUTTON
+          // STATE A
           <motion.button
             key="delete"
             layoutId="deleteButton"
@@ -96,7 +96,7 @@ const DeleteButton = () => {
             </motion.span>
           </motion.button>
         ) : (
-          // ✅ STATE B — CANCEL DELETION EXPANDED
+          // STATE B
           <motion.button
             key="cancel"
             layoutId="deleteButton"

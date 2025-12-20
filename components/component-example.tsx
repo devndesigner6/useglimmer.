@@ -93,7 +93,6 @@ import {
   File01Icon,
   LogoutIcon,
 } from "@hugeicons/core-free-icons";
-import MenuInteraction from "./checking";
 import FolderInteraction from "@/registry/default/example/folder-interaction";
 import FilterInteraction from "@/registry/default/example/list-item";
 import ExtendedToolbar from "@/registry/default/example/expanded-toolbar";
@@ -104,10 +103,10 @@ export function ComponentExample() {
       {/* <CardExample />
       <FormExample />
       <MenuInteraction /> */}
-
+      {/* 
       <FolderInteraction />
       <FilterInteraction />
-      <ExtendedToolbar />
+      <ExtendedToolbar /> */}
     </ExampleWrapper>
   );
 }
