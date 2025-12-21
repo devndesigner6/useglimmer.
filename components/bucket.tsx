@@ -13,14 +13,12 @@ const Bucket = () => {
   const [items, setItems] = useState(INITIAL_CHIPS);
 
   useEffect(() => {
-    // Rotation interval
     const interval = setInterval(() => {
       setItems((prev) => {
-        // Move first item to the end
         const [first, ...rest] = prev;
         return [...rest, first];
       });
-    }, 2000); // Stay for 2 seconds
+    }, 2000);
 
     return () => clearInterval(interval);
   }, []);
@@ -31,7 +29,6 @@ const Bucket = () => {
         className="relative isolate w-full max-w-[655px]"
         style={{ aspectRatio: "655/352" }}
       >
-        {/* Bottom Layer of SVG (Middle parts) */}
         <svg
           width="100%"
           height="100%"
@@ -806,11 +803,10 @@ const Bucket = () => {
           </defs>
         </svg>
 
-        {/* Text Layer - Absolute positioned in the middle, slightly lifted */}
         <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
           <div
             className="relative w-full h-full flex justify-center items-center"
-            style={{ paddingBottom: "80%" }}
+            style={{ paddingBottom: "70%" }}
           >
             <AnimatePresence mode="popLayout">
               {items.map((chip, index) => {
@@ -819,13 +815,35 @@ const Bucket = () => {
                 return (
                   <motion.div
                     key={chip.id}
-                    initial={{ y: -100, opacity: 0, scale: 0.8 }}
-                    animate={{ y: 0, opacity: 1, scale: 1 }}
-                    exit={{ y: 100, opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.5, delay: index * 0.5 }}
-                    className="bg-slate-400 z-10 rounded-lg px-5 py-2 absolute pointer-events-auto"
+                    initial={{
+                      y: -100,
+                      opacity: 0,
+                      scale: 0.8,
+                      transition: {
+                        duration: 2,
+                        delay: 0.5,
+                        ease: [0.455, 0.03, 0.515, 0.955],
+                      },
+                    }}
+                    animate={{ y: 0, opacity: 1, scale: 1.2 }}
+                    exit={{
+                      y: 130,
+                      scale: 0.8,
+                      transition: {
+                        duration: 0.8,
+                      },
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.455, 0.03, 0.515, 0.955],
+                    }}
+                    className="bg-card border border-border z-10 rounded-full p-2 w-[240px] shadow-sm absolute pointer-events-auto flex items-center gap-3 origin-bottom"
                   >
-                    {chip.title}
+                    <div className="size-8 rounded-full bg-emerald-500 shrink-0" />
+                    <div className="flex flex-col gap-1.5 w-full">
+                      <div className="h-2 w-3/4 bg-muted rounded-full" />
+                      <div className="h-2 w-1/2 bg-muted rounded-full" />
+                    </div>
                   </motion.div>
                 );
               })}
@@ -833,7 +851,6 @@ const Bucket = () => {
           </div>
         </div>
 
-        {/* Top Layer of SVG (The requested 'high index' parts) */}
         <svg
           width="100%"
           height="100%"
