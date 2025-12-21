@@ -97,10 +97,11 @@ import FolderInteraction from "@/registry/default/example/folder-interaction";
 import FilterInteraction from "@/registry/default/example/list-item";
 import ExtendedToolbar from "@/registry/default/example/expanded-toolbar";
 import SaveInput from "./save-input";
+import Bucket from "./bucket";
 
 export function ComponentExample() {
   return (
-    <ExampleWrapper className="light">
+    <ExampleWrapper className="dark">
       {/* <CardExample />
       <FormExample />
       <MenuInteraction /> */}
@@ -109,7 +110,8 @@ export function ComponentExample() {
     
       <FilterInteraction />
       <ExtendedToolbar /> */}
-      <SaveInput />
+      {/* <SaveInput /> */}
+      <Bucket />
     </ExampleWrapper>
   );
 }
