@@ -189,3 +189,7 @@
 [data-rehype-pretty-code-figure] pre {
   overflow-x: auto;
 }
+
+.squircle {
+  corner-shape: squircle;
+}

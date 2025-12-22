@@ -1,71 +1,106 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Bucket from "./bucket";
 import { MoveRight, Github } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import Header from "./header";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
+  const { scrollY } = useScroll();
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const isMobile = useIsMobile();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    console.log("Page scroll: ", latest);
+  });
+
+  const margin: any = useTransform(
+    scrollY,
+    [0, 300],
+    isMobile ? [8, 0] : [14, 0]
+  );
+  const radius = useTransform(scrollY, [0, 300], isMobile ? [36, 0] : [36, 0]);
+
   return (
-    <section className="relative w-full border min-h-screen overflow-hidden bg-background py-16 md:py-24 lg:py-32 flex flex-col">
-      <div className="absolute inset-0 z-0 ">
-        {/* <Image
+    <>
+      <Header />
+      <motion.section
+        style={{
+          marginLeft: margin,
+          marginRight: margin,
+          // marginTop: "2px",
+          borderRadius: radius,
+        }}
+        className="relative border min-h-[calc(100vh-4rem)] overflow-hidden bg-background py-8 md:py-16 lg:py-24 flex flex-col squircle"
+      >
+        <div className="absolute inset-0 z-0 ">
+          {/* <Image
           src="/hero-bg.png"
           alt="Abstract background"
           fill
           className="object-cover"
           priority
         /> */}
-        <Image
-          src="/background.png"
-          alt="Background"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" /> */}
-      </div>
+          <Image
+            src="/background.png"
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" /> */}
+        </div>
 
-      <div className="container relative z-10 mx-auto px-4 md:px-6 flex-1 flex flex-col">
-        <div className="flex flex-col justify-between gap-12 flex-1 lg:grid lg:grid-cols-2 lg:gap-8 lg:justify-around">
-          <div className="flex flex-col gap-2  items-start max-md:items-center max-md:text-center text-left">
-            <div className="">
-              <h1 className="mt-8  text-balance text-5xl font-medium md:text-6xl lg:mt-16 xl:text-7xl max-md:text-4xl max-md:text-center text-shadow-2xs">
-                A micro-interaction UI library for professionals.{" "}
-              </h1>
-              <p className="mt-4 text-pretty text-lg max-md:text-center text-shadow-2xs max-md:text-sm">
-                People don’t fall in love with components. They fall in love
-                with how something feels.{" "}
-              </p>
+        <div className="relative z-10 w-full px-4 md:px-8 lg:pl-12 lg:pr-0 xl:pl-20 xl:pr-14 flex-1 flex flex-col justify-center  max-sm:px-2">
+          <div className="flex flex-col justify-center gap-2 flex-1 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center max-sm:gap-12">
+            <div className="flex-1 flex flex-col gap-4 items-start justify-center max-md:items-center max-md:text-center text-left max-md:w-full  max-sm:justify-end ">
+              <div className="">
+                <h1 className=" tracking-tighter text-balance text-4xl font-medium md:text-5xl lg:text-6xl text-zinc-900 ">
+                  A micro-interaction UI library for professionals.
+                </h1>
+                <p className="mt-3 text-pretty text-lg max-md:text-center max-md:text-sm text-zinc-700  max-sm:px-2">
+                  People don’t fall in love with components. They fall in love
+                  with how something feels.
+                </p>
+              </div>
+
+              <div className="mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
+                <Button size="lg" className="px-5 text-base rounded-full">
+                  <Link href="#link">
+                    <span className="text-nowrap">Start Building</span>
+                  </Link>
+                </Button>
+                <Button
+                  key={2}
+                  size="lg"
+                  variant="ghost"
+                  className="px-5 text-base rounded-full"
+                >
+                  <Link href="#link">
+                    <span className="text-nowrap">Request a demo</span>
+                  </Link>
+                </Button>
+              </div>
             </div>
 
-            <div className="mt-8 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
-              <Button size="lg" className="px-5 text-base">
-                <Link href="#link">
-                  <span className="text-nowrap">Start Building</span>
-                </Link>
-              </Button>
-              <Button
-                key={2}
-                size="lg"
-                variant="ghost"
-                className="px-5 text-base"
-              >
-                <Link href="#link">
-                  <span className="text-nowrap">Request a demo</span>
-                </Link>
-              </Button>
-            </div>
-          </div>
-
-          <div className="flex justify-center items-end  lg:justify-end w-full ">
-            <div className="w-full max-w-[600px] lg:max-w-none">
-              <Bucket />
+            <div className="flex-1 flex justify-end items-end lg:justify-end w-full h-full max-md:items-end max-md:pb-6">
+              <div className="w-full max-w-[600px] lg:max-w-none">
+                <Bucket />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </motion.section>
+    </>
   );
 };
 
