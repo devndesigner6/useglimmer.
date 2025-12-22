@@ -1,17 +1,46 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
 import React, { useEffect, useState } from "react";
-
+import { Sparkles, ShieldCheck, Zap, Users } from "lucide-react";
+import {
+  SecurityCheckIcon,
+  ZapIcon,
+  UserStoryIcon,
+  SparklesIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { useIsMobile } from "@/hooks/use-mobile";
 const INITIAL_CHIPS = [
-  { id: 1, title: "Chip 1" },
-  { id: 2, title: "Chip 2" },
-  { id: 3, title: "Chip 3" },
-  { id: 4, title: "Chip 4" },
+  {
+    id: 1,
+    title: "Production Ready",
+    description: "Fully type-safe and tested",
+    icon: SecurityCheckIcon,
+  },
+  {
+    id: 2,
+    title: "Fluid Motion",
+    description: "60fps optimizations built-in",
+    icon: ZapIcon,
+  },
+  {
+    id: 3,
+    title: "Accessible",
+    description: "Works perfectly for everyone",
+    icon: UserStoryIcon,
+  },
+  {
+    id: 4,
+    title: "Modern Design",
+    description: "Crafted for high-end feel",
+    icon: SparklesIcon,
+  },
 ];
 
 const Bucket = () => {
   const [items, setItems] = useState(INITIAL_CHIPS);
 
+  const isMobile = useIsMobile();
   useEffect(() => {
     const interval = setInterval(() => {
       setItems((prev) => {
@@ -783,11 +812,11 @@ const Bucket = () => {
                 result="effect4_innerShadow_51_65"
               />
             </filter>
-            <clipPath
-              id="bgblur_5_51_65_clip_path"
-              transform="translate(-21.477 -56.6875)"
-            >
+            <clipPath id="bgblur_5_51_65_clip_path">
               <path d="M74.6011 164.033L123.116 79.1138L535.59 78.7419L581.532 164.469C588.006 176.55 591.243 182.59 588.568 187.06C585.892 191.529 579.039 191.529 565.333 191.529H90.5591C76.4759 191.529 69.4343 191.529 66.7781 186.953C64.1219 182.376 67.615 176.262 74.6011 164.033Z" />
+            </clipPath>
+            <clipPath id="center_box_clip">
+              <rect x="123.766" y="0" width="413" height="352" />
             </clipPath>
             <linearGradient
               id="paint0_linear_51_65"
@@ -806,7 +835,7 @@ const Bucket = () => {
         <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
           <div
             className="relative w-full h-full flex justify-center items-center"
-            style={{ paddingBottom: "70%" }}
+            style={{ paddingBottom: "65%" }}
           >
             <AnimatePresence mode="popLayout">
               {items.map((chip, index) => {
@@ -825,7 +854,7 @@ const Bucket = () => {
                         ease: [0.455, 0.03, 0.515, 0.955],
                       },
                     }}
-                    animate={{ y: 0, opacity: 1, scale: 1.2 }}
+                    animate={{ y: 0, opacity: 1, scale: isMobile ? 1 : 1.25 }}
                     exit={{
                       y: 130,
                       scale: 0.8,
@@ -837,12 +866,23 @@ const Bucket = () => {
                       duration: 0.5,
                       ease: [0.455, 0.03, 0.515, 0.955],
                     }}
-                    className="bg-card border border-border z-10 rounded-full p-2 w-[240px] shadow-sm absolute pointer-events-auto flex items-center gap-3 origin-bottom"
+                    className="bg-card border border-border z-10 rounded-full p-2 w-[240px] shadow-sm absolute pointer-events-auto flex items-center gap-2 origin-bottom"
                   >
-                    <div className="size-8 rounded-full bg-emerald-500 shrink-0" />
+                    {/* <div className="size-8 rounded-full bg-emerald-500 shrink-0" />
                     <div className="flex flex-col gap-1.5 w-full">
                       <div className="h-2 w-3/4 bg-muted rounded-full" />
                       <div className="h-2 w-1/2 bg-muted rounded-full" />
+                    </div> */}
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-400/10 text-blue-400">
+                      <HugeiconsIcon icon={chip.icon} className="size-5" />
+                    </div>
+                    <div className="flex flex-col gap-0.5">
+                      <span className="text-sm font-medium text-foreground leading-none">
+                        {chip.title}
+                      </span>
+                      <span className="text-xs text-muted-foreground ">
+                        {chip.description}
+                      </span>
                     </div>
                   </motion.div>
                 );
@@ -857,7 +897,10 @@ const Bucket = () => {
           viewBox="0 0 655 352"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="absolute inset-0 z-20 pointer-events-none"
+          className="absolute inset-0 z-20 pointer-events-none overflow-hidden"
+          style={{
+            transform: "translate3d(0, 0, 0)",
+          }}
         >
           {/* Top Layer Part 1: filter0 */}
           <g filter="url(#filter0_i_51_65)">
@@ -867,21 +910,22 @@ const Bucket = () => {
             />
           </g>
 
-          <foreignObject
-            x="21.477"
-            y="56.6875"
-            width="612.444"
-            height="212.562"
-          >
-            <div
-              style={{
-                backdropFilter: "blur(11.03px)",
-                clipPath: "url(#bgblur_5_51_65_clip_path)",
-                height: "100%",
-                width: "100%",
-              }}
-            ></div>
-          </foreignObject>
+          {/* Top Layer Part 2: filter6 Blur (Clipped to Box Width) */}
+          <g clipPath="url(#center_box_clip)">
+            <foreignObject x="0" y="0" width="655" height="352">
+              <div
+                style={{
+                  backdropFilter: "blur(60.03px)",
+                  WebkitBackdropFilter: "blur(60.03px)",
+                  height: "100%",
+                  width: "100%",
+                  background: "rgba(255, 255, 255, 0.01)",
+                  clipPath:
+                    "path('M74.6011 164.033L123.116 79.1138L535.59 78.7419L581.532 164.469C588.006 176.55 591.243 182.59 588.568 187.06C585.892 191.529 579.039 191.529 565.333 191.529H90.5591C76.4759 191.529 69.4343 191.529 66.7781 186.953C64.1219 182.376 67.615 176.262 74.6011 164.033Z')",
+                }}
+              ></div>
+            </foreignObject>
+          </g>
 
           {/* Top Layer Part 2: filter6 */}
           <g

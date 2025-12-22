@@ -13,6 +13,8 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { GithubIcon } from "@hugeicons/core-free-icons";
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -39,8 +41,9 @@ const Hero = () => {
           marginRight: margin,
           // marginTop: "2px",
           borderRadius: radius,
+          willChange: "margin, border-radius",
         }}
-        className="relative border min-h-[calc(100vh-4rem)] overflow-hidden bg-background py-8 md:py-16 lg:py-24 flex flex-col squircle"
+        className="relative border min-h-[calc(100svh-4rem)] overflow-hidden bg-background py-8 md:py-16 lg:py-24 flex flex-col squircle "
       >
         <div className="absolute inset-0 z-0 ">
           {/* <Image
@@ -73,20 +76,24 @@ const Hero = () => {
                 </p>
               </div>
 
-              <div className="mt-4 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
+              <div className="mt-4 flex  items-center justify-center gap-2  lg:justify-start">
                 <Button size="lg" className="px-5 text-base rounded-full">
-                  <Link href="#link">
-                    <span className="text-nowrap">Start Building</span>
+                  <Link href="/docs/introduction">
+                    <span className="text-nowrap">Get Started</span>
                   </Link>
                 </Button>
                 <Button
                   key={2}
                   size="lg"
-                  variant="ghost"
-                  className="px-5 text-base rounded-full"
+                  variant="secondary"
+                  className="px-5 text-base rounded-full "
                 >
-                  <Link href="#link">
-                    <span className="text-nowrap">Request a demo</span>
+                  <Link
+                    href="https://github.com/"
+                    className="flex items-center gap-2"
+                  >
+                    <HugeiconsIcon icon={GithubIcon} />
+                    <span className="text-nowrap">Github</span>
                   </Link>
                 </Button>
               </div>
