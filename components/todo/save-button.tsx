@@ -1,16 +1,14 @@
 "use client";
 
-import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
 import { Tick02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { useMemo, useState } from "react";
 
 export function SaveButton() {
-  const [status, setStatus] = React.useState<"idle" | "loading" | "success">(
-    "idle"
-  );
+  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
   const handleClick = () => {
     setStatus("loading");
@@ -22,7 +20,7 @@ export function SaveButton() {
     }, 2500);
   };
 
-  const text = React.useMemo(() => {
+  const text = useMemo(() => {
     switch (status) {
       case "idle":
         return "Save";

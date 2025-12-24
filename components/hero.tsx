@@ -25,7 +25,7 @@ const Hero = () => {
   const bottomInsetVal = useTransform(
     scrollY,
     [0, 300],
-    isMobile ? [0, 0] : [12, 0]
+    isMobile ? [0, 0] : [16, 0]
   );
   const radius = useTransform(scrollY, [0, 300], isMobile ? [24, 0] : [32, 0]);
 
