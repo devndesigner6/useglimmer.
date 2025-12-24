@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Input } from "../../../components/ui/input";
-import { Search, MessageSquare, Mail, LucideIcon } from "lucide-react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
   ArrowRight02Icon,

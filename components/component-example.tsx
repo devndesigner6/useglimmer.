@@ -93,14 +93,7 @@ import {
   File01Icon,
   LogoutIcon,
 } from "@hugeicons/core-free-icons";
-import FolderInteraction from "@/registry/default/example/folder-interaction";
-import FilterInteraction from "@/registry/default/example/list-item";
-import ExtendedToolbar from "@/registry/default/example/expanded-toolbar";
-import SaveInput from "../registry/default/example/save-input";
 import Bucket from "./bucket";
-import { SaveButton } from "../registry/default/example/save-button";
-import InputSwitch from "../registry/default/example/input-switch";
-import FrequencySelector from "../registry/default/example/frequency-selector";
 
 export function ComponentExample() {
   return (
@@ -113,11 +106,7 @@ export function ComponentExample() {
     
       <FilterInteraction />
       <ExtendedToolbar /> */}
-      <SaveInput />
-      <SaveButton />
-      <InputSwitch />
-      <FrequencySelector />
-      <Bucket />
+
     </ExampleWrapper>
   );
 }
