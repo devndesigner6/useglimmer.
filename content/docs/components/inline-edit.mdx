@@ -1,11 +1,11 @@
 ---
-title: Save Input
+title: Inline Edit
 description: An editable input field that toggles between view and edit modes with animations.
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Step, Steps } from "fumadocs-ui/components/steps";
-import SaveInput from "@/registry/default/example/save-input";
+import SaveInput from "@/registry/default/example/inline-edit";
 import { SourceCode } from "@/components/source-code";
 import { ComponentPreview } from "@/components/component-preview";
 
@@ -16,7 +16,7 @@ import { ComponentPreview } from "@/components/component-preview";
     </ComponentPreview>
   </Tab>
   <Tab value="Code">
-    <SourceCode filePath="registry/default/example/save-input.tsx" />
+    <SourceCode filePath="registry/default/example/inline-edit.tsx" />
 
   </Tab>
 </Tabs>
@@ -55,9 +55,17 @@ import { ComponentPreview } from "@/components/component-preview";
 ## Usage
 
 ```tsx
-import SaveInput from "@/components/save-input";
+import SaveInput from "@/components/inline-edit";
 
 export default function Page() {
   return <SaveInput />;
 }
 ```
+
+## Features
+
+- **Read/Edit Modes**: Distinct visual states for viewing and editing content.
+- **Seamless Transition**: Smooth morphing animation between text display and input field.
+- **Contextual Actions**: Edit and Save buttons appear only when relevant.
+- **Focus Management**: Automatically focuses the input field when entering edit mode.
+- **Visual Feedback**: Ring and shadow effects indicate active editing state.

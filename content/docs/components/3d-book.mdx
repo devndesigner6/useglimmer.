@@ -1,11 +1,11 @@
 ---
-title: Interactive Book
+title: 3D Book
 description: A 3D interactive book component that opens on hover or drag.
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Step, Steps } from "fumadocs-ui/components/steps";
-import InteractiveBook from "@/registry/default/example/interactive-book";
+import InteractiveBook from "@/registry/default/example/3d-book";
 import { SourceCode } from "@/components/source-code";
 import { ComponentPreview } from "@/components/component-preview";
 
@@ -16,7 +16,7 @@ import { ComponentPreview } from "@/components/component-preview";
     </ComponentPreview>
   </Tab>
   <Tab value="Code">
-    <SourceCode filePath="registry/default/example/interactive-book.tsx" />
+    <SourceCode filePath="registry/default/example/3d-book.tsx" />
 
   </Tab>
 </Tabs>
@@ -49,7 +49,7 @@ import { ComponentPreview } from "@/components/component-preview";
 ## Usage
 
 ```tsx
-import InteractiveBook from "@/components/interactive-book";
+import InteractiveBook from "@/components/3d-book";
 
 export default function Page() {
   return (
@@ -59,3 +59,11 @@ export default function Page() {
   );
 }
 ```
+
+## Features
+
+- **3D Perspective**: Realistic book cover and page depth using CSS 3D transforms.
+- **Interactive**: Book opens responsively on hover or drag interaction.
+- **Performance**: Pure CSS/JS implementation without heavy WebGL dependencies.
+- **Responsive**: Adapts to container size (desktop and mobile friendly).
+- **Customizable**: Easy to swap cover art or page content.

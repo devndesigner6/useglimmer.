@@ -1,11 +1,11 @@
 ---
-title: Menu Interaction
+title: Smooth Dropdown
 description: A morphing menu interaction with smooth animations.
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Step, Steps } from "fumadocs-ui/components/steps";
-import MenuInteraction from "@/registry/default/example/menu-interaction";
+import MenuInteraction from "@/registry/default/example/smooth-dropdown";
 import { SourceCode } from "@/components/source-code";
 import { ComponentPreview } from "@/components/component-preview";
 
@@ -18,7 +18,7 @@ import { ComponentPreview } from "@/components/component-preview";
   </ComponentPreview>
   </Tab>
   <Tab value="Code">
-    <SourceCode filePath="registry/default/example/menu-interaction.tsx" />
+    <SourceCode filePath="registry/default/example/smooth-dropdown.tsx" />
 
   </Tab>
 </Tabs>
@@ -28,7 +28,7 @@ import { ComponentPreview } from "@/components/component-preview";
 <Tabs items={['CLI', 'Manual']}>
   <Tab value="CLI">
     ```bash
-    npx shadcn@latest add "https://uselayouts.com/r/menu-interaction.json"
+    npx shadcn@latest add "https://uselayouts.com/r/smooth-dropdown.json"
     ```
   </Tab>
   <Tab value="Manual">
@@ -36,7 +36,7 @@ import { ComponentPreview } from "@/components/component-preview";
       <Step>
         ### Copy the code
 
-        Copy the code from the **Code** tab above into `components/menu-interaction.tsx`.
+        Copy the code from the **Code** tab above into `components/smooth-dropdown.tsx`.
       </Step>
       <Step>
         ### Update imports
@@ -51,7 +51,7 @@ import { ComponentPreview } from "@/components/component-preview";
 ## Usage
 
 ```tsx
-import MenuInteraction from "@/components/menu-interaction";
+import MenuInteraction from "@/components/smooth-dropdown";
 
 export default function Page() {
   return (
@@ -61,3 +61,11 @@ export default function Page() {
   );
 }
 ```
+
+## Features
+
+- **Morphing Background**: The menu container morphs shape smoothly to fit changing content.
+- **Staggered Animations**: List items animate in sequentially for a polished feel.
+- **Active States**: Clear visual indicators for active and hovered items.
+- **Outside Click Handling**: Automatically closes the menu when clicking outside.
+- **Spring Physics**: Uses spring animations for natural, non-linear motion.

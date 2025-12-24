@@ -1,12 +1,12 @@
 ---
-title: Input Switch
+title: Morphing Input
 description: An input field with an animated placeholder and toggleable icon switch.
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import { ComponentPreview } from "@/components/component-preview";
-import InputSwitch from "@/registry/default/example/input-switch";
+import InputSwitch from "@/registry/default/example/morphing-input";
 import { SourceCode } from "@/components/source-code";
 
 <Tabs items={['Preview', 'Code']}>
@@ -16,7 +16,7 @@ import { SourceCode } from "@/components/source-code";
     </ComponentPreview>
   </Tab>
   <Tab value="Code">
-    <SourceCode filePath="registry/default/example/input-switch.tsx" />
+    <SourceCode filePath="registry/default/example/morphing-input.tsx" />
 
   </Tab>
 </Tabs>
@@ -55,9 +55,17 @@ import { SourceCode } from "@/components/source-code";
 ## Usage
 
 ```tsx
-import InputSwitch from "@/components/input-switch";
+import InputSwitch from "@/components/morphing-input";
 
 export default function Page() {
   return <InputSwitch />;
 }
 ```
+
+## Features
+
+- **Mode Switch**: Toggles between specific preset inputs (e.g., Search, Image Gen) and free text.
+- **Animated Placeholder**: Placeholder text animates character-by-character.
+- **Search/Command Ready**: Ideal for command palettes or multi-purpose search bars.
+- **Compact to Detailed**: Expands to show more controls or details when active.
+- **Icon Integration**: Visual icons clearly denote the current input mode.

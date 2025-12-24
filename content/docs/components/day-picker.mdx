@@ -1,29 +1,34 @@
 ---
-title: Frequency Selector
+title: Day Picker
 description: A frequency selector component with spring animations and expandable day selection.
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import { ComponentPreview } from "@/components/component-preview";
-import TwentyThreeFour from "@/registry/default/example/frequency-selector";
+import TwentyThreeFour from "@/registry/default/example/day-picker";
 import { SourceCode } from "@/components/source-code";
 
-<Tabs items={['Preview', 'Code']}>
+<Tabs items={["Preview", "Code"]}>
   <Tab value="Preview">
     <ComponentPreview align="center">
       <TwentyThreeFour />
     </ComponentPreview>
   </Tab>
-  
+
   <Tab value="Code">
-    <SourceCode filePath="registry/default/example/frequency-selector.tsx" />
+    <SourceCode filePath="registry/default/example/day-picker.tsx" />
   </Tab>
 </Tabs>
 
 ## Installation
 
-<Tabs items={['Manual']}>
+<Tabs items={['CLI', 'Manual']}>
+  <Tab value="CLI">
+    ```bash
+    npx shadcn@latest add "https://uselayouts.com/r/frequency-selector.json"
+    ```
+  </Tab>
   <Tab value="Manual">
     <Steps>
       <Step>
@@ -51,9 +56,17 @@ import { SourceCode } from "@/components/source-code";
 ## Usage
 
 ```tsx
-import FrequencySelector from "@/components/frequency-selector";
+import FrequencySelector from "@/components/day-picker";
 
 export default function Page() {
   return <FrequencySelector />;
 }
 ```
+
+## Features
+
+- **Multi-select**: Intuitive selection of multiple days of the week.
+- **Compact to Expanded**: Collapses into a summary view and expands for selection.
+- **Spring Animations**: Smooth resizing and selection effects.
+- **Semantic Design**: specifically crafted for recurring schedule or frequency interfaces.
+- **Clear Feedback**: Active states distinguish selected days instantly.

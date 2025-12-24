@@ -1,11 +1,11 @@
 ---
-title: Save Button
+title: Status Button
 description: A save button with animated states for idle, loading, and success.
 ---
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { Step, Steps } from "fumadocs-ui/components/steps";
-import { SaveButton } from "@/registry/default/example/save-button";
+import { SaveButton } from "@/registry/default/example/status-button";
 import { SourceCode } from "@/components/source-code";
 import { ComponentPreview } from "@/components/component-preview";
 
@@ -16,7 +16,7 @@ import { ComponentPreview } from "@/components/component-preview";
     </ComponentPreview>
   </Tab>
   <Tab value="Code">
-    <SourceCode filePath="registry/default/example/save-button.tsx" />
+    <SourceCode filePath="registry/default/example/status-button.tsx" />
 
   </Tab>
 </Tabs>
@@ -55,9 +55,17 @@ import { ComponentPreview } from "@/components/component-preview";
 ## Usage
 
 ```tsx
-import { SaveButton } from "@/components/save-button";
+import { SaveButton } from "@/components/status-button";
 
 export default function Page() {
   return <SaveButton />;
 }
 ```
+
+## Features
+
+- **Multi-state**: Handles Idle, Loading, and Success states in a single component.
+- **Text Morphing**: Smooth character-level transitions for label changes.
+- **Visual Feedback**: Icons and colors update dynamically to reflect current status.
+- **Interaction Safety**: Disabled state during loading prevents duplicate submissions.
+- **Accessibility**: ARIA-friendly state management.
