@@ -22,6 +22,7 @@ import {
   SidebarTrigger,
   SidebarInset,
   SidebarHeader,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import SearchDialog from "@/components/search-dialog";
 
@@ -34,16 +35,7 @@ export function DocsLayout({ tree, children }: DocsLayoutProps) {
   return (
     <TreeContextProvider tree={tree}>
       <SidebarProvider>
-        <ShadcnSidebar variant={"floating"}>
-          <SidebarHeader>
-            <Link href="/" className="font-medium px-2 py-2">
-              My Docs
-            </Link>
-          </SidebarHeader>
-          <SidebarContent>
-            <DocsSidebarContent />
-          </SidebarContent>
-        </ShadcnSidebar>
+        <DocsSidebar tree={tree} />
         <SidebarInset>
           <header className="sticky top-0  bg-background h-14 z-20 ">
             <nav className="flex flex-row items-center gap-2 size-full px-4">
@@ -58,6 +50,29 @@ export function DocsLayout({ tree, children }: DocsLayoutProps) {
         </SidebarInset>
       </SidebarProvider>
     </TreeContextProvider>
+  );
+}
+
+function DocsSidebar({ tree }: { tree: PageTree.Root }) {
+  const { isMobile, setOpenMobile } = useSidebar();
+
+  const handleClose = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
+
+  return (
+    <ShadcnSidebar variant={"floating"}>
+      <SidebarHeader>
+        <Link href="/" className="font-medium px-2 py-2" onClick={handleClose}>
+          My Docs
+        </Link>
+      </SidebarHeader>
+      <SidebarContent>
+        <DocsSidebarContent />
+      </SidebarContent>
+    </ShadcnSidebar>
   );
 }
 
@@ -105,6 +120,13 @@ function SidebarItem({
   isNested?: boolean;
 }) {
   const pathname = usePathname();
+  const { isMobile, setOpenMobile } = useSidebar();
+
+  const handleClose = () => {
+    if (isMobile) {
+      setOpenMobile(false);
+    }
+  };
 
   if (item.type === "page") {
     if (isNested) {
@@ -113,6 +135,7 @@ function SidebarItem({
           <SidebarMenuSubButton
             render={(props) => <Link {...props} href={item.url} />}
             isActive={pathname === item.url}
+            onClick={handleClose}
           >
             {item.icon}
             <span>{item.name}</span>
@@ -126,6 +149,7 @@ function SidebarItem({
         <SidebarMenuButton
           render={(props) => <Link {...props} href={item.url} />}
           isActive={pathname === item.url}
+          onClick={handleClose}
         >
           {item.icon}
           <span>{item.name}</span>
@@ -150,6 +174,7 @@ function SidebarItem({
           <SidebarMenuSubButton
             render={(props) => <Link {...props} href={item.index!.url} />}
             isActive={pathname === item.index.url}
+            onClick={handleClose}
           >
             {item.index.icon}
             <span>{item.index.name}</span>
@@ -171,6 +196,7 @@ function SidebarItem({
         <SidebarMenuButton
           render={(props) => <Link {...props} href={item.index!.url} />}
           isActive={pathname === item.index.url}
+          onClick={handleClose}
         >
           {item.index.icon}
           <span>{item.index.name}</span>
