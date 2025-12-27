@@ -229,7 +229,7 @@ export default function MorphCollections() {
                 </motion.div>
               ))}
             </motion.div>
-            
+
             <AnimatePresence>
               {view === "pack" && (
                 <motion.div
@@ -238,9 +238,9 @@ export default function MorphCollections() {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: 5, filter: "blur(5px)" }}
                   transition={{ duration: 0.3, delay: 0.1 }}
-                  className="mt-16 text-center space-y-3 px-4 relative z-0"
+                  className="mt-8 text-center space-y-3 px-4  relative z-0"
                 >
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-wide">
+                  <div className="inline-flex items-center gap-1.5 px-3  rounded-full bg-primary/10 text-primary text-[11px] font-bold uppercase tracking-wide py-1">
                     <HugeiconsIcon icon={Ticket01Icon} size={12} />
                     <span>Bundle unlocked</span>
                   </div>
