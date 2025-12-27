@@ -4,8 +4,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
-
-
 interface Testimonial {
   id: number;
   name: string;
@@ -86,7 +84,7 @@ export default function ShakeTestimonial() {
   return (
     <div className="flex items-center justify-center h-full min-h-screen w-full bg-transparent p-4 overflow-hidden">
       <div
-        className="relative w-full max-w-[440px] h-[340px]"
+        className="relative w-full max-w-[440px] h-[310px]"
         style={{ perspective: "1200px" }}
       >
         <AnimatePresence mode="popLayout">
@@ -143,15 +141,17 @@ export default function ShakeTestimonial() {
                 }}
                 className={cn(
                   "w-full h-full rounded-[48px] p-8 md:p-10  shadow-[0_12px_20px_rgba(0,0,0,0.03)]",
-                  "border border-black/4 flex flex-col justify-between overflow-hidden",
-                  "cursor-pointer select-none ring-1 ring-white/10 backdrop-blur-3xl",
+                  `border border-${card.color}/4 flex flex-col justify-between overflow-hidden`,
+                  `cursor-pointer select-none ring-1 ring-${card.color}/10 backdrop-blur-3xl`,
                   "preserve-3d transition-shadow duration-500 hover:shadow-[0_13px_60px_rgba(0,0,0,0.1)]"
                 )}
                 onClick={handleNext}
               >
                 <div className="flex flex-col gap-6">
                   <div className="flex items-center gap-4">
-                    <div className="flex items-center justify-center w-14 h-14 bg-white/40 rounded-2xl shadow-inner border border-white/40">
+                    <div
+                      className={`flex items-center justify-center w-14 h-14 bg-white/50 rounded-2xl shadow-inner border border-${card.color}/20`}
+                    >
                       <img
                         src={card.avatar}
                         className="text-4xl leading-none w-full h-full object-contain"
