@@ -30,7 +30,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import useMeasure from "react-use-measure";
 
 const MultiStepForm = () => {
@@ -236,77 +236,92 @@ const MultiStepForm = () => {
   }, [currentStep]);
 
   return (
-    <motion.div
-      animate={{ height: bounds.height }}
-      className="flex  w-full items-center justify-center bg-muted/10"
+    <MotionConfig
+      transition={{
+        duration: 0.4,
+        type: "spring",
+        bounce: 0,
+        opacity: { duration: 0.2 },
+      }}
     >
-      <Card className="w-full max-w-xl shadow-none border ">
-        <CardHeader className="flex flex-row items-start justify-between space-y-0 px-6 py-2">
-          <div className="flex flex-col gap-1">
-            <CardTitle className="text-xl">
-              {stepTitles[currentStep].title}
-            </CardTitle>
-            <CardDescription>
-              {stepTitles[currentStep].description}
-            </CardDescription>
-          </div>
-          <div className="flex items-center gap-1.5 pt-1">
-            {stepTitles.map((_, index) => (
-              <div
-                key={index}
-                className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  currentStep === index ? "w-8 bg-primary" : "w-2 bg-primary/20"
-                )}
-              />
-            ))}
-          </div>
-        </CardHeader>
+      <div className="flex w-full items-center justify-center bg-muted/10 p-4">
+        <Card className="w-full max-w-xl shadow-none border overflow-hidden">
+          <motion.div layout>
+            <CardHeader className="flex flex-row items-start justify-between space-y-0 px-6 py-4">
+              <div className="flex flex-col gap-1">
+                <CardTitle className="text-xl">
+                  {stepTitles[currentStep].title}
+                </CardTitle>
+                <CardDescription>
+                  {stepTitles[currentStep].description}
+                </CardDescription>
+              </div>
+              <div className="flex items-center gap-1.5 pt-1">
+                {stepTitles.map((_, index) => (
+                  <div
+                    key={index}
+                    className={cn(
+                      "h-2 rounded-full transition-all duration-300",
+                      currentStep === index
+                        ? "w-8 bg-primary"
+                        : "w-2 bg-primary/20"
+                    )}
+                  />
+                ))}
+              </div>
+            </CardHeader>
 
-        <CardContent className="px-6 py-2 overflow-hidden relative" ref={ref}>
-          <AnimatePresence mode="popLayout">
             <motion.div
-              key={currentStep}
-              initial={{ x: "110%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-110%", opacity: 0 }}
-              transition={{ duration: 0.4, type: "spring", bounce: 0 }}
-              className="overflow-hidden"
+              animate={{ height: bounds.height > 0 ? bounds.height : "auto" }}
+              className="relative overflow-hidden"
+              transition={{ type: "spring", bounce: 0, duration: 0.4 }}
             >
-              {content}
+              <div ref={ref}>
+                <CardContent className="px-6 py-2 relative">
+                  <AnimatePresence mode="popLayout" initial={false}>
+                    <motion.div
+                      key={currentStep}
+                      initial={{ x: "110%", opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      exit={{ x: "-110%", opacity: 0 }}
+                      className="w-full"
+                    >
+                      {content}
+                    </motion.div>
+                  </AnimatePresence>
+                </CardContent>
+              </div>
             </motion.div>
-          </AnimatePresence>
-        </CardContent>
 
-        <motion.div layout>
-          <CardFooter className="flex justify-between border-t ">
-            <Button
-              variant="ghost"
-              onClick={prevStep}
-              disabled={currentStep === 0}
-              className="text-muted-foreground hover:text-foreground  hover:bg-transparent"
-            >
-              <ChevronLeft />
-              Back
-            </Button>
-            <Button
-              onClick={nextStep}
-              className="bg-primary text-primary-foreground flex items-center justify-center"
-            >
-              {currentStep === stepTitles.length - 1 ? (
-                <>
-                  Finish <Check />
-                </>
-              ) : (
-                <>
-                  Continue <ChevronRight />
-                </>
-              )}
-            </Button>
-          </CardFooter>
-        </motion.div>
-      </Card>
-    </motion.div>
+            <CardFooter className="flex justify-between border-t">
+              <Button
+                variant="ghost"
+                onClick={prevStep}
+                disabled={currentStep === 0}
+                className="text-muted-foreground hover:text-foreground hover:bg-transparent"
+              >
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                Back
+              </Button>
+              <Button
+                onClick={nextStep}
+                className="bg-primary text-primary-foreground flex items-center justify-center "
+              >
+                {currentStep === stepTitles.length - 1 ? (
+                  <>
+                    Finish <Check className="ml-2 h-4 w-4" />
+                  </>
+                ) : (
+                  <>
+                    Continue <ChevronRight className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </CardFooter>
+          </motion.div>
+        </Card>
+      </div>
+    </MotionConfig>
   );
 };
 
