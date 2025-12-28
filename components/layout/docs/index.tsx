@@ -37,7 +37,7 @@ export function DocsLayout({ tree, children }: DocsLayoutProps) {
       <SidebarProvider>
         <DocsSidebar tree={tree} />
         <SidebarInset>
-          <header className="sticky top-0  bg-background h-14 z-20 ">
+          <header className="sticky top-0  bg-background h-14 z-priority ">
             <nav className="flex flex-row items-center gap-2 size-full px-4">
               <SidebarTrigger />
               <div className="flex-1" />

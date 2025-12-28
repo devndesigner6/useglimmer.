@@ -193,3 +193,6 @@
 .squircle {
   corner-shape: squircle;
 }
+.z-priority {
+  z-index: 99999;
+}
