@@ -67,7 +67,7 @@ function PricingCard() {
   const [userCount, setUserCount] = useState(3);
 
   return (
-    <div className="w-full max-w-[450px] flex flex-col gap-6 p-6 sm:p-6 rounded-4xl sm:rounded-2xl border border-border bg-muted/30 shadow-sm transition-colors duration-300">
+    <div className="w-full max-w-[450px] flex flex-col gap-6 p-6 sm:p-6 rounded-4xl sm:rounded-2xl border border-border bg-background shadow-sm transition-colors duration-300 not-prose">
       <div className="flex flex-col gap-4 mb-2">
         <h1 className="text-2xl font-semibold text-foreground tracking-tight">
           Select a Plan
@@ -114,7 +114,6 @@ function PricingCard() {
         </div>
       </div>
 
-      {/* Plans List */}
       <div className="flex flex-col gap-3">
         {plans.map((plan) => {
           const isSelected = selectedPlan === plan.id;
@@ -143,7 +142,7 @@ function PricingCard() {
                               : "border-muted-foreground/15"
                           }`}
                         >
-                          <AnimatePresence mode="wait">
+                          <AnimatePresence mode="wait" initial={false}>
                             {isSelected && (
                               <motion.div
                                 initial={{ scale: 0 }}

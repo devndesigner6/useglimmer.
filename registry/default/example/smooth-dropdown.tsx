@@ -72,7 +72,6 @@ export default function TwentyTwelveOne() {
         className="absolute top-0 right-0 bg-popover border border-border shadow-lg overflow-hidden cursor-pointer origin-top-right "
         onClick={() => !isOpen && setIsOpen(true)}
       >
-        {/* Icon - visible when closed */}
         <motion.div
           initial={false}
           animate={{
