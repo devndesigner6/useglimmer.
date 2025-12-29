@@ -23,7 +23,7 @@ const Header = () => {
     <header>
       <nav
         data-state={menuState && "active"}
-        className="group sticky top-0 z-50 w-full  bg-transparent"
+        className="group sticky top-0 z-50 w-full  bg-transparent  overflow-x-hidden"
       >
         <div className="m-auto w-full px-4 md:px-8 lg:px-12 xl:px-20 max-sm:px-2">
           <div className="flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
@@ -49,7 +49,7 @@ const Header = () => {
               <button
                 onClick={() => setMenuState(!menuState)}
                 aria-label={menuState == true ? "Close Menu" : "Open Menu"}
-                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden text-foreground transition-all duration-700"
+                className="relative z-20 -m-2.5 block cursor-pointer p-2.5 lg:hidden text-foreground transition-all duration-700"
               >
                 <HugeiconsIcon
                   icon={Menu11Icon}

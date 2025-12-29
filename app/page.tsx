@@ -19,7 +19,7 @@ export default function Page() {
       <ProductBenefits />
       <Testimonial />
 
-      <ExpandableGallery />
+      {/* <ExpandableGallery /> */}
 
       <Footer />
     </main>

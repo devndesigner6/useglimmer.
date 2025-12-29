@@ -873,7 +873,7 @@ const Bucket = () => {
                       <div className="h-2 w-3/4 bg-muted rounded-full" />
                       <div className="h-2 w-1/2 bg-muted rounded-full" />
                     </div> */}
-                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-blue-400/10 text-blue-400">
+                    <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-muted-foreground/10 text-muted-foreground">
                       <HugeiconsIcon icon={chip.icon} className="size-5" />
                     </div>
                     <div className="flex flex-col gap-0.5">

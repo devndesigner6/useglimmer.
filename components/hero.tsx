@@ -58,7 +58,7 @@ const Hero = () => {
                 <h1 className=" tracking-tighter text-balance text-4xl font-medium md:text-5xl lg:text-6xl text-foreground ">
                   A micro-interaction UI library for professionals.
                 </h1>
-                <p className="mt-3 text-pretty text-lg max-lg:text-center max-md:text-sm text-muted-foreground  max-sm:px-2">
+                <p className="mt-3 text-pretty text-lg max-lg:text-center max-md:text-md leading-tight text-shadow-2xs text-foreground/50 max-sm:px-2">
                   People don’t fall in love with components. They fall in love
                   with how something feels.
                 </p>
@@ -87,7 +87,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="flex-1  flex justify-end items-end lg:justify-end w-full h-full max-lg:items-center max-lg:justify-center max-md:pb-6 max-md:landscape:hidden h-full md:justify-center md:items-center lg:items-end max-sm:justify-end max-sm:items-end">
+            <div className="flex-1  flex justify-end items-end lg:justify-end w-full h-full max-lg:items-center max-lg:justify-center max-md:pb-2 max-md:landscape:hidden h-full md:justify-center md:items-center lg:items-end max-sm:justify-end max-sm:items-end">
               <div className="w-full max-w-[600px] lg:max-w-none">
                 <Bucket />
               </div>

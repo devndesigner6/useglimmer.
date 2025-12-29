@@ -73,7 +73,7 @@ export default function ProductBenefits() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="tracking-tighter text-balance text-4xl font-medium md:text-5xl lg:text-6xl text-foreground mb-4">
-            Built for Motion
+            Built to Ship, Not Just Look Good{" "}
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             Stop settling for static. Give your UI more life with professional
