@@ -10,6 +10,7 @@ import MultiStepForm from "@/components/todo/multistep-form";
 import ShakeTestimonial from "@/registry/default/example/shake-testimonial-card";
 import PricingCard from "@/registry/default/example/pricing-card";
 import Testimonial from "@/components/testimonial";
+import Footer from "@/components/footer";
 
 export default function Page() {
   return (
@@ -18,21 +19,7 @@ export default function Page() {
       <ProductBenefits />
       <Testimonial />
 
-      <div className="flex flex-col min-h-screen items-center justify-center gap-24 py-20 px-4">
-        {/* <ShakeTestimonial /> */}
-
-        {/* <PricingCard />
-        <LayoutSwitcher />
-        <FolderInteraction />
-        <MorphCollections />
-        <FeatureCarousel />
-        <ExpandableGallery />
-        <VerticalTabs />
-
-        <ShakeTestimonial />
-
-        <MultiStepForm /> */}
-      </div>
+      <Footer />
     </main>
   );
 }
