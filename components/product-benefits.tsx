@@ -2,27 +2,22 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  Zap,
-  Layout,
-  Copy,
-  Code2,
-  Palette,
-  Cpu,
-  LayoutGrid,
-  BookOpen,
-  History,
-  Github,
-  HelpCircle,
-  LucideIcon,
-} from "lucide-react";
+  DashboardSquare01Icon,
+  FlashIcon,
+  CopyIcon,
+  CodeIcon,
+  ColorsIcon,
+  CpuIcon,
+} from "@hugeicons/core-free-icons";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 
 interface Benefit {
   title: string;
   description: string;
-  icon: LucideIcon;
+  icon: any;
 }
 
 const benefits: Benefit[] = [
@@ -30,44 +25,36 @@ const benefits: Benefit[] = [
     title: "Built on Shadcn UI",
     description:
       "Extending Shadcn with meaningful motion and professional depth.",
-    icon: Layout,
+    icon: DashboardSquare01Icon,
   },
   {
     title: "Framer Motion Powered",
     description:
       "Buttery smooth transitions using industry-standard libraries.",
-    icon: Zap,
+    icon: FlashIcon,
   },
   {
     title: "Copy & Paste Simplicity",
     description: "Copy and paste to give your app a premium feel instantly.",
-    icon: Copy,
+    icon: CopyIcon,
   },
   {
     title: "Type Inference Ready",
     description:
       "Fully typed with TypeScript for a seamless developer experience.",
-    icon: Code2,
+    icon: CodeIcon,
   },
   {
     title: "Customizable Aesthetics",
     description:
       "Tweak colors and timings easily with Tailwind and CSS variables.",
-    icon: Palette,
+    icon: ColorsIcon,
   },
   {
     title: "Performance Optimized",
     description: "Lightweight 60FPS animations optimized for performance.",
-    icon: Cpu,
+    icon: CpuIcon,
   },
-];
-
-const dockItems = [
-  { id: "components", icon: LayoutGrid, label: "Components" },
-  { id: "docs", icon: BookOpen, label: "Docs" },
-  { id: "changelog", icon: History, label: "Changelog" },
-  { id: "github", icon: Github, label: "GitHub" },
-  { id: "help", icon: HelpCircle, label: "Help" },
 ];
 
 export default function ProductBenefits() {
@@ -106,10 +93,11 @@ export default function ProductBenefits() {
             >
               <div className="absolute inset-0 bg-secondary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-              <div className="mb-6 p-3.5 rounded-2xl bg-muted/40 group-hover:bg-background/80 group-hover:scale-110 transition-all duration-300 z-10">
-                <benefit.icon
-                  className="w-7 h-7 text-foreground"
-                  strokeWidth={1.5}
+              <div className="mb-6 p-3.5 rounded-2xl  group-hover:scale-110 transition-all duration-300 z-10">
+                <HugeiconsIcon
+                  icon={benefit.icon}
+                  className="w-8 h-8 text-foreground"
+                  size={32}
                 />
               </div>
 
