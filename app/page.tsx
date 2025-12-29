@@ -1,4 +1,5 @@
 import Hero from "@/components/hero";
+import ProductBenefits from "@/components/product-benefits";
 import ExpandableGallery from "@/registry/default/example/expandable-gallery";
 import FeatureCarousel from "@/registry/default/example/feature-carousel";
 import VerticalTabs from "@/registry/default/example/vertical-tabs";
@@ -13,10 +14,12 @@ export default function Page() {
   return (
     <main className="min-h-screen light bg-white font-[family-name:var(--font-geist-sans)]">
       <Hero />
+      <ProductBenefits />
+
       <div className="flex flex-col min-h-screen items-center justify-center gap-24 py-20 px-4">
         {/* <ShakeTestimonial /> */}
 
-        <PricingCard />
+        {/* <PricingCard />
         <LayoutSwitcher />
         <FolderInteraction />
         <MorphCollections />
@@ -26,7 +29,7 @@ export default function Page() {
 
         <ShakeTestimonial />
 
-        <MultiStepForm />
+        <MultiStepForm /> */}
       </div>
     </main>
   );
