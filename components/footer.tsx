@@ -10,8 +10,8 @@ import Image from "next/image";
 
 const footerLinks = {
   library: [
-    { name: "Components", href: "/components", badge: "NEW" },
-    { name: "Documentation", href: "/docs" },
+    { name: "Components", href: "/docs/components/3d-book", badge: "NEW" },
+    { name: "Documentation", href: "/docs/introduction" },
     { name: "Star on GitHub", href: "https://github.com/iurvish/uselayouts" },
   ],
 };

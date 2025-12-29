@@ -12,9 +12,9 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
 
 const menuItems = [
-  { name: "Components", href: "/components" },
-  { name: "Documentation", href: "/docs" },
-  { name: "About", href: "/about" },
+  { name: "Components", href: "/docs/components/3d-book" },
+  { name: "Documentation", href: "/docs/introduction" },
+  { name: "Meet Creator", href: "https://urvishh.me" },
 ];
 
 const Header = () => {
