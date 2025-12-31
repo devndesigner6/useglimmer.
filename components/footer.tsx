@@ -26,10 +26,10 @@ const Footer = () => {
             <span className="text-muted-foreground">your users will love</span>
           </h2>
 
-          <div>
+          <Link href="/docs/components/3d-book">
             <Button
               size="lg"
-              className="rounded-full px-10 h-14 text-lg gap-2 group shadow-xl shadow-primary/10"
+              className="rounded-full px-10 h-14 text-lg gap-2 group shadow-xl shadow-primary/10 cursor-pointer"
             >
               Browse Components
               <HugeiconsIcon
@@ -38,7 +38,7 @@ const Footer = () => {
                 className="group-hover:translate-x-1 transition-transform"
               />
             </Button>
-          </div>
+          </Link>
         </div>
       </div>
 

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   description:
     "Free premium animated React components and micro-interactions built with Framer Motion and Tailwind CSS. Modern, ready-to-use motion components for high-converting websites.",
-  authors: [{ name: "uselayouts team" }],
+  authors: [{ name: "Urvish Mali" }],
   creator: "uselayouts",
   metadataBase: new URL("https://uselayouts.com"),
   icons: {
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     siteName: "uselayouts",
     images: [
       {
-        url: "/apple-touch-icon.png", // Temporary OG Image
-        width: 180,
-        height: 180,
-        alt: "uselayouts",
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "uselayouts - Premium Animated React Components",
       },
     ],
   },
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
       "uselayouts | Free Premium Animated React & Framer Motion Components",
     description:
       "Free premium animated React components and micro-interactions built with Framer Motion and Tailwind CSS. Modern, ready-to-use motion components for high-converting websites.",
-    images: ["/apple-touch-icon.png"], // Temporary OG Image
-    creator: "@uselayouts",
+    images: ["/og.png"],
+    creator: "@0xUrvish",
   },
 };
 

@@ -3,6 +3,16 @@
   "name": "status-button",
   "title": "Status Button",
   "description": "A button with animated states for idle, loading, and success.",
+  "dependencies": [
+    "motion",
+    "@hugeicons/core-free-icons",
+    "@hugeicons/react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
   "files": [
     {
       "path": "registry/default/example/status-button.tsx",

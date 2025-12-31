@@ -3,6 +3,13 @@
   "name": "folder-interaction",
   "title": "Folder Interaction",
   "description": "A folder management system with drag-and-drop-like feel.",
+  "dependencies": [
+    "motion",
+    "@hugeicons/core-free-icons",
+    "@hugeicons/react",
+    "clsx",
+    "tailwind-merge"
+  ],
   "files": [
     {
       "path": "registry/default/example/folder-interaction.tsx",

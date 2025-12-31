@@ -3,6 +3,11 @@
   "name": "3d-book",
   "title": "3D Book",
   "description": "An interactive 3D book component with page flip animations.",
+  "dependencies": [
+    "motion",
+    "clsx",
+    "tailwind-merge"
+  ],
   "files": [
     {
       "path": "registry/default/example/3d-book.tsx",

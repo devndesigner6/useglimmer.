@@ -77,7 +77,7 @@ const Hero = () => {
                   className="px-5 text-base rounded-full "
                 >
                   <Link
-                    href="https://github.com/"
+                    href="https://github.com/iurvish/uselayouts"
                     className="flex items-center gap-2"
                   >
                     <HugeiconsIcon icon={GithubIcon} />

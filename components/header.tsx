@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 import Link from "next/link";
@@ -7,6 +9,8 @@ import {
   Menu01FreeIcons,
   Menu11Icon,
   GithubIcon,
+  NewTwitterRectangleIcon,
+  NewTwitterIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
@@ -87,9 +91,23 @@ const Header = () => {
                   <Button
                     size="icon"
                     variant={"secondary"}
-                    className="rounded-md p-1 "
+                    className="rounded-md p-1 cursor-pointer"
                   >
                     <HugeiconsIcon icon={GithubIcon} className="size-5" />
+                  </Button>
+                </Link>
+
+                <Link
+                  href="https://x.com/0xUrvish"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    size="icon"
+                    variant={"secondary"}
+                    className="rounded-md p-1 cursor-pointer"
+                  >
+                    <HugeiconsIcon icon={NewTwitterIcon} className="size-5" />
                   </Button>
                 </Link>
               </div>

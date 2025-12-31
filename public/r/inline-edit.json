@@ -3,6 +3,16 @@
   "name": "inline-edit",
   "title": "Inline Edit",
   "description": "An input that switches between read and edit modes.",
+  "dependencies": [
+    "motion",
+    "@hugeicons/core-free-icons",
+    "@hugeicons/react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [
+    "input"
+  ],
   "files": [
     {
       "path": "registry/default/example/inline-edit.tsx",
