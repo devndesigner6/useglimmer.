@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# uselayouts
 
-## Getting Started
+**A micro-interaction UI library for professionals.**
 
-First, run the development server:
+[uselayouts](https://uselayouts.com) provides free premium animated React components and micro-interactions built with Framer Motion and Tailwind CSS. Designed to integrate seamlessly with Shadcn UI, it helps you bring your interfaces to life with ease.
+
+![uselayouts Banner](https://uselayouts.com/og.png)
+
+## Why uselayouts?
+
+People don’t fall in love with components. They fall in love with how something feels. uselayouts focuses on the fine details of interaction:
+
+- **Premium Animations**: Built with Framer Motion for buttery smooth transitions.
+- **Shadcn Compatible**: Designed to work with your existing Shadcn UI setup.
+- **Micro-interactions**: Focused on the small details that make a big difference in UX.
+- **Copy & Paste**: Easy to integrate into any React project.
+
+## Installation
+
+You can add components to your project using the Shadcn CLI:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx shadcn@latest add https://uselayouts.com/r/3d-book
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Replace `3d-book` with any component name from our [documentation](https://uselayouts.com/docs/introduction).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Component Registry**: Automatically generates code for your project.
+- **SEO Optimized**: Built-in support for OG images and metadata.
+- **Accessible**: Built on top of accessible primitives.
+- **Customizable**: Fully stylable with Tailwind CSS classes.
 
-## Learn More
+## Development
 
-To learn more about Next.js, take a look at the following resources:
+If you'd like to run the documentation site locally:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/iurvish/uselayouts.git
+   ```
+2. Install dependencies:
+   ```bash
+   yarn install
+   ```
+3. Run the development server:
+   ```bash
+   yarn dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Registry Build
 
-## Deploy on Vercel
+To build the component registry:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+yarn build:registry
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Community
+
+- **Website**: [uselayouts.com](https://uselayouts.com)
+- **Twitter/X**: [@0xUrvish](https://x.com/0xUrvish)
+- **GitHub**: [iurvish/uselayouts](https://github.com/iurvish/uselayouts)
+
+## License
+
+Built by [Urvish Mali](https://x.com/0xUrvish).
+Licensed under the [MIT License](LICENSE).

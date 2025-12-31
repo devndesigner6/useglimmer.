@@ -275,10 +275,6 @@ export const Index: Record<string, any> = {
       path: "registry/default/example/multi-step-form.tsx",
       type: "registry:component",
       target: ""
-    },{
-      path: "components/ui/field.tsx",
-      type: "registry:ui",
-      target: ""
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/default/example/multi-step-form.tsx")

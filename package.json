@@ -2,6 +2,21 @@
   "name": "uselayouts",
   "version": "0.1.0",
   "private": true,
+  "description": "Free premium animated React components and micro-interactions built with Framer Motion and Tailwind CSS.",
+  "author": "Urvish Mali (@0xUrvish)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iurvish/uselayouts.git"
+  },
+  "keywords": [
+    "react",
+    "framer-motion",
+    "tailwind-css",
+    "components",
+    "ui-library",
+    "micro-interactions"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "npm run build:registry && next build",
