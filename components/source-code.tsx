@@ -16,7 +16,7 @@ export async function SourceCode({
   let filePath = providedFilePath;
 
   if (name && Index[name]) {
-    filePath = `registry/default/${Index[name].files[0].path}`;
+    filePath = Index[name].files[0].path;
   }
 
   if (!filePath) {

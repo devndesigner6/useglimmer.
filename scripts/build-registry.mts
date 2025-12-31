@@ -16,17 +16,13 @@ import * as React from "react"
 
 export const Index: Record<string, any> = {`;
   for (const item of registry.items) {
-    const resolveFiles = item.files?.map(
-      (file: any) => `registry/default/${file.path}`
-    );
+    const resolveFiles = item.files?.map((file: any) => `${file.path}`);
     if (!resolveFiles) {
       continue;
     }
 
     const demoPath = `registry/default/demo/${item.name}-demo.tsx`;
-    let componentPath = item.files?.[0]?.path
-      ? `@/registry/default/${item.files[0].path}`
-      : "";
+    let componentPath = item.files?.[0]?.path ? `@/${item.files[0].path}` : "";
 
     try {
       await fs.access(path.join(process.cwd(), demoPath));

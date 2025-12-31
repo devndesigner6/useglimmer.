@@ -12,7 +12,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/3d-book.tsx",
+      path: "registry/default/example/3d-book.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -30,7 +30,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/animated-collection.tsx",
+      path: "registry/default/example/animated-collection.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -48,7 +48,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/bottom-menu.tsx",
+      path: "registry/default/example/bottom-menu.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -66,7 +66,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/day-picker.tsx",
+      path: "registry/default/example/day-picker.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -84,7 +84,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/delete-button.tsx",
+      path: "registry/default/example/delete-button.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -102,7 +102,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/discover-button.tsx",
+      path: "registry/default/example/discover-button.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -120,7 +120,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/discrete-tabs.tsx",
+      path: "registry/default/example/discrete-tabs.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -138,8 +138,12 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/dynamic-toolbar.tsx",
+      path: "registry/default/example/dynamic-toolbar.tsx",
       type: "registry:block",
+      target: ""
+    },{
+      path: "hooks/use-measure.tsx",
+      type: "registry:hook",
       target: ""
     }],
     component: React.lazy(async () => {
@@ -154,10 +158,14 @@ export const Index: Record<string, any> = {
     name: "expandable-gallery",
     description: "A photo gallery with smooth item expansion.",
     type: "registry:block",
-    registryDependencies: undefined,
+    registryDependencies: ["button"],
     files: [{
-      path: "example/expandable-gallery.tsx",
+      path: "registry/default/example/expandable-gallery.tsx",
       type: "registry:block",
+      target: ""
+    },{
+      path: "hooks/use-outside-click.ts",
+      type: "registry:hook",
       target: ""
     }],
     component: React.lazy(async () => {
@@ -174,7 +182,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/feature-carousel.tsx",
+      path: "registry/default/example/feature-carousel.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -192,7 +200,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/folder-interaction.tsx",
+      path: "registry/default/example/folder-interaction.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -208,9 +216,9 @@ export const Index: Record<string, any> = {
     name: "inline-edit",
     description: "An input that switches between read and edit modes.",
     type: "registry:block",
-    registryDependencies: undefined,
+    registryDependencies: ["input"],
     files: [{
-      path: "example/inline-edit.tsx",
+      path: "registry/default/example/inline-edit.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -228,7 +236,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/list-item.tsx",
+      path: "registry/default/example/list-item.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -244,9 +252,9 @@ export const Index: Record<string, any> = {
     name: "morphing-input",
     description: "An input field that morphs between different states.",
     type: "registry:block",
-    registryDependencies: undefined,
+    registryDependencies: ["input"],
     files: [{
-      path: "example/morphing-input.tsx",
+      path: "registry/default/example/morphing-input.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -262,10 +270,14 @@ export const Index: Record<string, any> = {
     name: "multi-step-form",
     description: "A dynamic, animated multi-step form with validation.",
     type: "registry:block",
-    registryDependencies: undefined,
+    registryDependencies: ["card","button","input","textarea","select","badge","calendar","popover"],
     files: [{
-      path: "example/multi-step-form.tsx",
+      path: "registry/default/example/multi-step-form.tsx",
       type: "registry:block",
+      target: ""
+    },{
+      path: "components/ui/field.tsx",
+      type: "registry:ui",
       target: ""
     }],
     component: React.lazy(async () => {
@@ -282,7 +294,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/pricing-card.tsx",
+      path: "registry/default/example/pricing-card.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -300,7 +312,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/shake-testimonial-card.tsx",
+      path: "registry/default/example/shake-testimonial-card.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -318,7 +330,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/smooth-dropdown.tsx",
+      path: "registry/default/example/smooth-dropdown.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -334,9 +346,9 @@ export const Index: Record<string, any> = {
     name: "status-button",
     description: "A button with animated states for idle, loading, and success.",
     type: "registry:block",
-    registryDependencies: undefined,
+    registryDependencies: ["button"],
     files: [{
-      path: "example/status-button.tsx",
+      path: "registry/default/example/status-button.tsx",
       type: "registry:block",
       target: ""
     }],
@@ -354,7 +366,7 @@ export const Index: Record<string, any> = {
     type: "registry:block",
     registryDependencies: undefined,
     files: [{
-      path: "example/vertical-tabs.tsx",
+      path: "registry/default/example/vertical-tabs.tsx",
       type: "registry:block",
       target: ""
     }],
