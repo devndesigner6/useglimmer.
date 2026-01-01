@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { Button } from "./ui/button";
@@ -9,8 +9,6 @@ import {
   Menu01FreeIcons,
   Menu11Icon,
   GithubIcon,
-  NewTwitterRectangleIcon,
-  NewTwitterIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import Image from "next/image";
@@ -38,12 +36,12 @@ const Header = () => {
                 className="flex items-center space-x-2 "
               >
                 {/* <span className="text-xl font-bold tracking-tight text-zinc-900">
-                  uselayouts
+                  useglimmer
                 </span> */}
 
                 <Image
-                  src="/logomark.svg"
-                  alt="logo"
+                  src="/logomark.png"
+                  alt="useglimmer logo"
                   width={184}
                   height={33}
                   className="pointer-events-none select-none"
@@ -84,7 +82,7 @@ const Header = () => {
 
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit lg:border-l lg:pl-6">
                 <Link
-                  href="https://github.com/iurvish/uselayouts"
+                  href="https://github.com/devndesigner6/useglimmer..git"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -94,20 +92,6 @@ const Header = () => {
                     className="rounded-md p-1 cursor-pointer"
                   >
                     <HugeiconsIcon icon={GithubIcon} className="size-5" />
-                  </Button>
-                </Link>
-
-                <Link
-                  href="https://twitter.com/0xUrvish"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button
-                    size="icon"
-                    variant={"secondary"}
-                    className="rounded-md p-1 cursor-pointer"
-                  >
-                    <HugeiconsIcon icon={NewTwitterIcon} className="size-5" />
                   </Button>
                 </Link>
               </div>

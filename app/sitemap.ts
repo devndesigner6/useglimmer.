@@ -1,8 +1,8 @@
-import type { MetadataRoute } from "next";
+﻿import type { MetadataRoute } from "next";
 import { source } from "@/lib/source";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://uselayouts.com";
+  const baseUrl = "https://useglimmer.com";
 
   // Get all documentation pages
   const docsPages = source.getPages().map((page) => ({

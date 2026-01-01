@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -11,7 +11,10 @@ const footerLinks = {
   library: [
     { name: "Components", href: "/docs/components/3d-book", badge: "NEW" },
     { name: "Documentation", href: "/docs/introduction" },
-    { name: "Star on GitHub", href: "https://github.com/iurvish/uselayouts" },
+    {
+      name: "Star on GitHub",
+      href: "https://github.com/devndesigner6/useglimmer..git",
+    },
   ],
 };
 
@@ -46,8 +49,8 @@ const Footer = () => {
           <div className="lg:col-span-8 space-y-6">
             <Link href="/" className="block">
               <Image
-                src="/logomark.svg"
-                alt="logo"
+                src="/logomark.png"
+                alt="useglimmer logo"
                 width={184}
                 height={33}
                 className="pointer-events-none select-none"
@@ -87,17 +90,16 @@ const Footer = () => {
 
         <div className="mt-24 pt-10 border-t border-border/40 flex flex-row items-center justify-between gap-4">
           <div className="flex items-center text-sm sm:text-base text-muted-foreground transition-colors whitespace-nowrap">
-            <span>&copy; {new Date().getFullYear()} uselayouts.com </span>
+            <span>&copy; {new Date().getFullYear()} useglimmer.com </span>
           </div>
-
           <div className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base text-muted-foreground transition-colors whitespace-nowrap">
             <span className=" xs:inline">Built by</span>
             <Link
-              href="https://twitter.com/0xUrvish"
+              href="https://github.com/devndesigner6/useglimmer..git"
               target="_blank"
-              className="font-semibold text-foreground hover:text-primary transition-colors hover:underline"
+              className="font-semibold text-foreground hover:text-primary transition-colors hover:underline ml-1"
             >
-              @0xUrvish
+              hemanth
             </Link>
           </div>
         </div>

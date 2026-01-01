@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Bucket from "./bucket";
@@ -58,7 +58,7 @@ const Hero = () => {
                   A micro-interaction UI library for professionals.
                 </h1>
                 <p className="mt-3 text-pretty text-lg max-lg:text-center max-md:text-md leading-tight text-shadow-2xs text-foreground/50 max-sm:px-2">
-                  People don’t fall in love with components. They fall in love
+                  People don't fall in love with components. They fall in love
                   with how something feels.
                 </p>
               </div>
@@ -76,7 +76,7 @@ const Hero = () => {
                   className="px-5 text-base rounded-full "
                 >
                   <Link
-                    href="https://github.com/iurvish/uselayouts"
+                    href="https://github.com/devndesigner6/useglimmer..git"
                     className="flex items-center gap-2"
                   >
                     <HugeiconsIcon icon={GithubIcon} />

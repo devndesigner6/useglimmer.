@@ -1,7 +1,7 @@
-{
+﻿{
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "uselayouts",
-  "homepage": "https://uselayouts.com",
+  "name": "useglimmer",
+  "homepage": "https://useglimmer.com",
   "items": [
     {
       "name": "3d-book",
