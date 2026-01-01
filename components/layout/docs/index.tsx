@@ -81,13 +81,13 @@ function DocsSidebar({ tree }: { tree: PageTree.Root }) {
 
   return (
     <ShadcnSidebar variant={"floating"}>
-      <SidebarHeader>
-        <Link href="/" className="font-medium p-0" onClick={handleClose}>
+      <SidebarHeader className="p-0">
+        <Link href="/" className="p-0 m-0" onClick={handleClose}>
           <Image
             src="/logomark.png"
             alt="useglimmer logo"
-            width={240}
-            height={42}
+            width={280}
+            height={50}
             className="pointer-events-none select-none"
           />
         </Link>
