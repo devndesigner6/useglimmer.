@@ -11,7 +11,6 @@ export default function Page() {
       <ProductBenefits />
       <Testimonial />
 
-      <ExpandableGalleryDemo />
       <Footer />
     </main>
   );

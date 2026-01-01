@@ -32,6 +32,7 @@
     "@hookform/resolvers": "^5.2.2",
     "@hugeicons/core-free-icons": "^2.0.0",
     "@hugeicons/react": "^1.1.1",
+    "@next/third-parties": "^16.1.1",
     "@number-flow/react": "^0.5.10",
     "@radix-ui/react-collapsible": "^1.1.12",
     "@types/mdx": "^2.0.13",

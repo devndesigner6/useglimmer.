@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -78,6 +79,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen antialiased`}
       >
         <RootProvider>{children}</RootProvider>
+        <GoogleAnalytics gaId="G-EBGR3GK00N" />
       </body>
     </html>
   );
