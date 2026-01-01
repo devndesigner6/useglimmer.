@@ -51,8 +51,8 @@ const Footer = () => {
               <Image
                 src="/logomark.png"
                 alt="useglimmer logo"
-                width={184}
-                height={33}
+                width={240}
+                height={42}
                 className="pointer-events-none select-none"
               />
             </Link>
@@ -88,16 +88,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-24 pt-10 border-t border-border/40 flex flex-row items-center justify-between gap-4">
-          <div className="flex items-center text-sm sm:text-base text-muted-foreground transition-colors whitespace-nowrap">
-            <span>&copy; {new Date().getFullYear()} useglimmer.com </span>
+        <div className="mt-24 pt-10 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-8">
+          <div className="flex items-center text-sm sm:text-base text-muted-foreground transition-colors">
+            <span>&copy; {new Date().getFullYear()} useglimmer.com</span>
           </div>
-          <div className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base text-muted-foreground transition-colors whitespace-nowrap">
-            <span className=" xs:inline">Built by</span>
+          <div className="flex items-center gap-1 sm:gap-2 text-sm sm:text-base text-muted-foreground transition-colors">
+            <span>Built by</span>
             <Link
               href="https://github.com/devndesigner6/useglimmer..git"
               target="_blank"
-              className="font-semibold text-foreground hover:text-primary transition-colors hover:underline ml-1"
+              className="font-semibold text-foreground hover:text-primary transition-colors hover:underline"
             >
               hemanth
             </Link>

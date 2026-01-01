@@ -16,7 +16,6 @@ import Image from "next/image";
 const menuItems = [
   { name: "Components", href: "/docs/components/3d-book" },
   { name: "Documentation", href: "/docs/introduction" },
-  { name: "Meet Creator", href: "https://urvishh.me" },
 ];
 
 const Header = () => {
@@ -42,8 +41,8 @@ const Header = () => {
                 <Image
                   src="/logomark.png"
                   alt="useglimmer logo"
-                  width={184}
-                  height={33}
+                  width={240}
+                  height={42}
                   className="pointer-events-none select-none"
                 />
               </Link>

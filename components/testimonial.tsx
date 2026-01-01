@@ -39,7 +39,7 @@ export default function Testimonial() {
               }}
               className="inline-block"
             >
-              ðŸ’–
+              ❤️
             </motion.span>
           </motion.span>
         </h2>
